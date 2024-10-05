@@ -1,35 +1,61 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="website.css">
-    
+    <title>Rishabh's Space</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
-
 <body>
-<h1><b>Rishabh Trivedi</b></h1>
-<hr />
-<h4>
-    <ol>Introduction <p style="font-family:verdana">
-        Cloud Solutions Architect with 10+ years of experience in designing an implementing data & analytics solutions in on-premise and cloud platforms.
-    </p><hr />
-    Professional Journey 
-    <hr />
-    Projects<br /><hr />
-    Hobbies<br /><hr />
-    </ol>
-</h4>
-<ul>
+
+<div class="tab">
+    <button class="tablinks" onclick="openTabs(event, 'About Me')">About Me</button>
+    <button class="tablinks" onclick="openTabs(event, 'Profession')">Profession</button>
+    <button class="tablinks" onclick="openTabs(event, 'Hobbies')">Hobbies</button>
+</div>
+
+<img src="./assets/images/bat_logo.jpeg" />
+
+<div id="About Me" class="tabcontent">
+    <a href="./about.html"> About Me</a>
+</div>
+
+<div id="Profession" class="tabcontent">
+    <h3>Profession</h3>
+    <p>Working as a Cloud Solutions Architect</p>
+</div>
+
+<div id="Hobbies" class="tabcontent">
+    <h3>Hobbies</h3>
+    <p>Playing Music Instruments & Arial Photography</p>
+</div>
+
+<script>
+    function openTabs(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+<ul title="social-media">
+    <li><a href="https://www.linkedin.com/in/rishabh-trivedi-25615757/"><i class="fa fa-linkedin" 
+                    aria-hidden="true"></i></a></li>
     <li><a href="https://github.com/trivedirishabh"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-    <li><a href="https://www.linkedin.com/in/rishabh-trivedi-25615757/"><i class="fa fa-linkedin"
-                aria-hidden="true"></i></a></li>
     <li><a href="https://www.instagram.com/rishabhtrivedi.23"><i class="fa fa-instagram" aria-hidden="true"></i></a>
     </li>
     <li><a href="https://medium.com/@trivedirishabh"><i class="fa fa-medium" aria-hidden="true"></i></a></li>
-    <li><a href="https://www.facebook.com/rishabh.rt"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-    <li><a href="https://www.x.com/@rt_rishabh"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 </ul>
 
 </body>
