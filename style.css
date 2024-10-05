@@ -6,8 +6,8 @@ body {
 
 ul {
     position: absolute;
-    top: 2.5%;
-    left: 95%;
+    top: 1.2vw;
+    left: 96vw;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0;
