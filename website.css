@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #dedede;
+}
+
+ul {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+}
+
+h1 {
+    color: teal;
+    font-size: 40px;
+    text-align: center;
+}
+p {
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    font-weight: lighter;
+}
+
+h4 {
+    color: black;
+    font-size: 20px;
+    text-align: left;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: white;
+    color: #3B5998;
+}
+
+.fa-twitter {
+    background: white;
+    color: #55ACEE;
+}
+
+.fa-medium {
+    background: white;
+    color: #030303;
+}
+
+.fa-linkedin {
+    background: white;
+    color: #007bb5;
+}
+
+.fa-github {
+    background: white;
+    color: #0a0a0a;
+}
+
+.fa-instagram {
+    background: white;
+    color: #fa3422;
+}
