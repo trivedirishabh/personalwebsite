@@ -491,13 +491,10 @@
 				</div>
 			</div>
 		</div>
-		</div>
-		</div>
-
 	</section>
 	<!--/.education-->
 	<!--education end -->
-	<!--hobbies start -->
+
 	<!--hobbies start -->
 	<section id="hobbies" class="hobbies">
 		<div class="section-heading text-center">
@@ -510,8 +507,8 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe width="100%" height="300"
-									src="https://www.youtube.com/embed/q2_pQGcwcYE?vq=hd1080"
+								<iframe id="video-travel" width="100%" height="300"
+									src="https://www.youtube.com/embed/q2_pQGcwcYE?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -528,7 +525,8 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe width="100%" height="300" src="https://youtube.com/embed/skh3Yg9PtqI?vq=hd1080"
+								<iframe id="video-music" width="100%" height="300"
+									src="https://youtube.com/embed/skh3Yg9PtqI?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -545,8 +543,8 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe width="100%" height="300"
-									src="https://www.youtube.com/embed/XcegcqQ0CdM?vq=hd1080"
+								<iframe id="video-gaming" width="100%" height="300"
+									src="https://www.youtube.com/embed/XcegcqQ0CdM?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -728,64 +726,97 @@
 		})();
 	</script>
 
-</body>
+	<script>
+		(function () {
+			var form = document.getElementById('contact-form');
+			var submitBtn = document.getElementById('contact-submit');
 
-<script>
-	(function () {
-		var form = document.getElementById('contact-form');
-		var submitBtn = document.getElementById('contact-submit');
+			if (!form) return;
 
-		if (!form) return;
+			form.addEventListener('submit', async function (e) {
+				e.preventDefault();
 
-		form.addEventListener('submit', async function (e) {
-			e.preventDefault();
+				// Store original button text
+				var originalBtnText = submitBtn.textContent;
 
-			// Store original button text
-			var originalBtnText = submitBtn.textContent;
+				// Button feedback
+				submitBtn.textContent = 'Sending...';
+				submitBtn.style.opacity = '0.6';
+				submitBtn.disabled = true;
 
-			// Button feedback
-			submitBtn.textContent = 'Sending...';
-			submitBtn.style.opacity = '0.6';
-			submitBtn.disabled = true;
+				var formData = new FormData(form);
 
-			var formData = new FormData(form);
+				try {
+					var res = await fetch(form.action, {
+						method: 'POST',
+						body: formData,
+						headers: { 'Accept': 'application/json' }
+					});
 
-			try {
-				var res = await fetch(form.action, {
-					method: 'POST',
-					body: formData,
-					headers: { 'Accept': 'application/json' }
-				});
+					if (res.ok) {
+						submitBtn.textContent = 'Message sent ✔';
+						submitBtn.style.opacity = '1';
+						form.reset();
 
-				if (res.ok) {
-					submitBtn.textContent = 'Message sent ✔';
-					submitBtn.style.opacity = '1';
-					form.reset();
+						setTimeout(function () {
+							submitBtn.textContent = originalBtnText;
+						}, 2500);
+					} else {
+						submitBtn.textContent = 'Try again ❗';
+						submitBtn.style.opacity = '1';
 
-					setTimeout(function () {
-						submitBtn.textContent = originalBtnText;
-					}, 2500);
-				} else {
-					submitBtn.textContent = 'Try again ❗';
+						setTimeout(function () {
+							submitBtn.textContent = originalBtnText;
+						}, 2500);
+					}
+				} catch (err) {
+					submitBtn.textContent = 'Error ❗';
 					submitBtn.style.opacity = '1';
 
 					setTimeout(function () {
 						submitBtn.textContent = originalBtnText;
 					}, 2500);
 				}
-			} catch (err) {
-				submitBtn.textContent = 'Error ❗';
-				submitBtn.style.opacity = '1';
 
-				setTimeout(function () {
-					submitBtn.textContent = originalBtnText;
-				}, 2500);
+				submitBtn.disabled = false;
+			});
+		})();
+	</script>
+
+	<script>
+		// YouTube Player API for Auto-Pause
+		var playerIds = ['video-travel', 'video-music', 'video-gaming'];
+		var players = [];
+
+		function onYouTubeIframeAPIReady() {
+			playerIds.forEach(function (id) {
+				var player = new YT.Player(id, {
+					events: {
+						'onStateChange': onPlayerStateChange
+					}
+				});
+				players.push(player);
+			});
+		}
+
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.PLAYING) {
+				players.forEach(function (player) {
+					// Pause other players that are not the one currently starting
+					if (player.getIframe().id !== event.target.getIframe().id) {
+						player.pauseVideo();
+					}
+				});
 			}
+		}
 
-			submitBtn.disabled = false;
-		});
-	})();
-</script>
+		// Load YouTube IFrame API asynchronously
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	</script>
 
+</body>
 
 </html>
