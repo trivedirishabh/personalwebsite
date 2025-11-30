@@ -1,3 +1,121 @@
+/* Hide existing top nav on small screens (adjust selector to your actual nav) */
+@media (max-width: 768px) {
+
+    .top-nav,
+    header nav,
+    .main-menu {
+        display: none;
+    }
+}
+
+/* Base styles for the floating cylindrical nav (FAB nav) */
+.mobile-fab-nav {
+    position: fixed;
+    right: 1.2rem;
+    bottom: 1.5rem;
+    z-index: 9999;
+    display: none;
+    /* hidden by default, shown only on mobile via media query */
+    font-family: inherit;
+}
+
+/* Show only on mobile */
+@media (max-width: 768px) {
+    .mobile-fab-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+/* The cylindrical (pill) toggle button */
+.fab-toggle {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    /* super rounded = cylinder/pill */
+    background: #111827;
+    /* dark background */
+    color: #ffffff;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Menu container */
+.fab-menu {
+    position: absolute;
+    right: 0;
+    bottom: 3.2rem;
+    /* above the button */
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.5rem;
+    background: rgba(17, 24, 39, 0.98);
+    /* near black */
+    border-radius: 999px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Visible state when open */
+.mobile-fab-nav.open .fab-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Each icon+label item */
+.fab-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #f9fafb;
+    white-space: nowrap;
+}
+
+.fab-item:hover,
+.fab-item:focus {
+    background: rgba(55, 65, 81, 0.95);
+}
+
+/* Icon circle inside each item */
+.fab-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1f2937;
+    font-size: 1rem;
+}
+
+/* Optional: hide labels to show only icons on very small screens */
+@media (max-width: 420px) {
+    .fab-label {
+        display: none;
+    }
+
+    .fab-item {
+        justify-content: center;
+        padding: 0.4rem;
+    }
+}
+
+
 * {
     padding: 0;
     margin: 0;
