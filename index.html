@@ -526,7 +526,7 @@
 						<div class="single-hobby-item">
 							<div class="hobby-video">
 								<iframe id="video-music" width="100%" height="300"
-									src="https://youtube.com/embed/skh3Yg9PtqI?vq=hd1080&enablejsapi=1"
+									src="https://www.youtube.com/embed/skh3Yg9PtqI?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -552,7 +552,7 @@
 								</iframe>
 							</div>
 							<div class="hobby-txt">
-								<h4>Gaming</h4>
+								<h4>Video Gaming</h4>
 								<p>Keeping my inner child alive.</p>
 							</div>
 						</div>
@@ -803,7 +803,7 @@
 			if (event.data == YT.PlayerState.PLAYING) {
 				players.forEach(function (player) {
 					// Pause other players that are not the one currently starting
-					if (player.getIframe().id !== event.target.getIframe().id) {
+					if (player !== event.target && typeof player.pauseVideo === 'function') {
 						player.pauseVideo();
 					}
 				});
