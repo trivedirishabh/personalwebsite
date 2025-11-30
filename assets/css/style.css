@@ -14,7 +14,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    color: #555555;
+    color: #544848;
     background: #F0EEEA;
     max-width: 1920px;
     margin: 0 auto;
@@ -27,7 +27,7 @@ a:active,
 a:focus {
     display: inline-block;
     text-decoration: none;
-    color: #777777;
+    color: #544848;
     font-size: 16px;
     padding: 0;
 }
@@ -39,7 +39,7 @@ h4,
 h5,
 h6 {
     margin: 0;
-    color: #D6CBBF;
+    color: #544848;
     font-size: 16px;
     font-family: 'Playfair Display', serif;
     text-transform: capitalize;
@@ -48,7 +48,7 @@ h6 {
 p {
     margin: 0;
     line-height: 1.8;
-    color: #555555;
+    color: #544848;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
 }
@@ -131,7 +131,7 @@ nav.navbar.bootsnav {
 .navbar-header a.navbar-brand:hover,
 .navbar-header a.navbar-brand:focus {
     display: inline-block;
-    color: #D6CBBF;
+    color: #544848;
     font-size: 20px;
     font-weight: 600;
     padding: 33px 0px 57px;
@@ -146,7 +146,7 @@ nav.navbar.bootsnav ul.nav>li>a {
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
-    color: #555555;
+    color: #544848;
     -webkit-transition: 0.3s linear;
     -moz-transition: 0.3s linear;
     -ms-transition: 0.3s linear;
@@ -174,7 +174,7 @@ nav.navbar.bootsnav ul.nav>li.dropdown span {
 }
 
 .sticky-wrapper.is-sticky nav.navbar.bootsnav ul.nav>li>a {
-    color: #555555;
+    color: #544848;
 }
 
 .sticky-wrapper.is-sticky nav.navbar.bootsnav ul.nav>li>a:hover,
@@ -234,7 +234,7 @@ nav.navbar.bootsnav .navbar-toggle i {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: url(../images/about/fra.jpeg)no-repeat;
+    background: url(../images/about/fft.jpeg)no-repeat;
     background-size: cover;
     background-position: center;
     height: 890px;
@@ -261,11 +261,11 @@ nav.navbar.bootsnav .navbar-toggle i {
 }
 
 .header-text h2 span {
-    color: #D6CBBF;
+    color: #fff;
 }
 
 .header-text p {
-    color: #555555;
+    color: #fff;
     font-size: 20px;
     font-weight: 300;
     text-transform: uppercase;
@@ -308,19 +308,20 @@ nav.navbar.bootsnav .navbar-toggle i {
 
 .about-content {
     padding-top: 100px;
+    background: #F0EEEA;
 }
 
 /*.single-about-txt*/
 .single-about-txt h3 {
     font-size: 18px;
-    color: #555555;
+    color: #544848;
     text-transform: initial;
     line-height: 1.8;
 }
 
 .single-about-txt p {
     font-size: 16px;
-    color: #777777;
+    color: #544848;
     padding: 35px 0 43px;
     border-bottom: 1px solid #D6CBBF;
 }
@@ -330,7 +331,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 }
 
 .single-about-add-info h3 {
-    color: #555555;
+    color: #544848;
     font-size: 16px;
     text-transform: capitalize;
 }
@@ -340,7 +341,7 @@ nav.navbar.bootsnav .navbar-toggle i {
     border: 0;
     padding: 0;
     margin-top: 3px;
-    color: #D6CBBF;
+    color: #544848;
 }
 
 /*.single-about-txt*/
@@ -426,7 +427,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 
 .single-horizontal-timeline .experience-time h3 {
     text-transform: capitalize;
-    color: #555555;
+    color: #544848;
 }
 
 .single-horizontal-timeline .experience-time h3 span {
@@ -435,11 +436,11 @@ nav.navbar.bootsnav .navbar-toggle i {
 
 .single-horizontal-timeline .timeline-content h5 {
     margin: 15px 0;
-    color: #777777;
+    color: #544848;
 }
 
 .single-horizontal-timeline p {
-    color: #777777;
+    color: #544848;
     max-width: 335px;
 }
 
@@ -511,7 +512,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     font-weight: 400;
     font-size: 16px;
     text-transform: uppercase;
-    color: #555555;
+    color: #544848;
 }
 
 .progress {
@@ -581,13 +582,13 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 .experience-time h2 {
     font-weight: 400;
-    color: #555555;
+    color: #544848;
 }
 
 .experience-time h3 {
     font-size: 16px;
     font-weight: 300;
-    color: #D6CBBF;
+    color: #544848;
     margin-top: 14px;
     text-transform: uppercase;
 }
@@ -627,11 +628,11 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
-    color: #555555;
+    color: #544848;
 }
 
 .timeline-content h5 {
-    color: #777777;
+    color: #544848;
     font-size: 14px;
     font-weight: 300;
     margin: 18px 0 20px;
@@ -639,7 +640,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 .main-timeline .description {
     font-size: 14px;
-    color: #777777;
+    color: #544848;
 }
 
 .main-timeline .timeline-content.right {
@@ -697,14 +698,14 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 }
 
 .hobby-txt h4 {
-    color: #D6CBBF;
+    color: #544848;
     font-size: 20px;
     margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
 }
 
 .hobby-txt p {
-    color: #555555;
+    color: #544848;
 }
 
 /*-------------------------------------
@@ -732,7 +733,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     box-shadow: none;
     outline: 0 !important;
     background: #F0EEEA;
-    color: #555555;
+    color: #544848;
     resize: none;
 }
 
@@ -750,13 +751,13 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
     -webkit-transition: .5s;
     font-size: 24px;
-    color: #555555;
+    color: #544848;
 }
 
 .contact-add-head p {
     font-size: 16px;
     text-transform: capitalize;
-    color: #6f5252;
+    color: #544848;
     font-weight: 300;
     margin-top: 6px;
 }
@@ -769,12 +770,12 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 }
 
 .single-contact-add-info h3 {
-    color: #555555;
+    color: #544848;
     font-weight: 500;
 }
 
 .single-contact-add-info p {
-    color: #777777;
+    color: #544848;
     font-size: 16px;
     margin-top: 18px;
     margin-left: 20px;
@@ -794,7 +795,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 }
 
 .hm-foot-icon ul li>a {
-    color: #777777;
+    color: #544848;
     margin-right: 18px;
     -webkit-transition: .3s;
     -moz-transition: .3s;
@@ -810,13 +811,13 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 /*hm-foot-icon*/
 
 .hm-footer-copyright p {
-    color: #777777;
+    color: #544848;
     text-transform: capitalize;
     padding: 38px 0;
 }
 
 .hm-footer-copyright p a {
-    color: #777777;
+    color: #544848;
 }
 
 /*===============================
