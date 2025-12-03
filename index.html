@@ -51,14 +51,14 @@
 					</div>
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li class="smooth-menu active"></li>
-							<li class="smooth-menu"><a href="#about">about me</a></li>
-							<li class="smooth-menu"><a href="#experience">experience</a></li>
-							<li class="smooth-menu"><a href="#skills">skills</a></li>
-							<li class="smooth-menu"><a href="#education">education</a></li>
-							<li class="smooth-menu"><a href="#contact">contact</a></li>
-							<li><a href="beyondwork.html">Beyond Work</a></li>
+							<li class="smooth-menu"><a href="#about">ABOUT ME</a></li>
+							<li class="smooth-menu"><a href="#experience">EXPERIENCE</a></li>
+							<li class="smooth-menu"><a href="#skills">SKILLS</a></li>
+							<li class="smooth-menu"><a href="#education">EDUCATION</a></li>
+							<li class="smooth-menu"><a href="#contact">CONTACT</a></li>
+							<li class="smooth-menu"><a href="beyondwork.html">BEYOND WORK</a></li>
 						</ul>
+
 					</div>
 				</div>
 			</nav>
@@ -539,6 +539,135 @@
 	<script src="assets/js/owl.carousel.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+
+	<script>
+		// Ensure only ONE nav item is active at any time
+		$(function () {
+			var headerHeight = $('.navbar').outerHeight() || 80;
+
+			var $links = $('.navbar-nav li a[href^="#"]');
+			var sections = [];
+
+			// Collect the real section elements for each nav link
+			$links.each(function () {
+				var id = $(this).attr('href'); // e.g. "#skills"
+				var $sec = $(id);
+				if ($sec.length) {
+					sections.push($sec[0]);
+				}
+			});
+
+			function updateActive() {
+				var scrollPos = $(window).scrollTop() + headerHeight + 10;
+				var currentId = null;
+
+				sections.forEach(function (sec) {
+					var $sec = $(sec);
+					var top = $sec.offset().top;
+					var bottom = top + $sec.outerHeight();
+
+					if (scrollPos >= top && scrollPos < bottom) {
+						currentId = sec.id;
+					}
+				});
+
+				// Clear all active states
+				$('.navbar-nav li').removeClass('active');
+
+				// Set active ONLY for the section we’re currently in
+				if (currentId) {
+					$('.navbar-nav li a[href="#' + currentId + '"]').parent().addClass('active');
+				}
+			}
+
+			// Run once on load and whenever we scroll
+			updateActive();
+			$(window).on('scroll', updateActive);
+
+			// Optional: also smooth-scroll on click (without touching active state –
+			// scroll handler will fix it as soon as the scroll happens)
+			$links.on('click', function (e) {
+				var targetId = $(this).attr('href');
+				var $target = $(targetId);
+				if (!$target.length) return;
+
+				e.preventDefault();
+				$('html, body').stop().animate(
+					{ scrollTop: $target.offset().top - headerHeight },
+					500,
+					'easeInOutExpo'
+				);
+			});
+		});
+	</script>
+	<script>
+		// Ensure only ONE nav item is active at any time, and keep # links smooth
+		$(function () {
+			var headerHeight = $('.navbar').outerHeight() || 80;
+
+			// 1) Remove ALL old click handlers from navbar links (including theme's)
+			$('.navbar-nav li a').off('click');
+
+			// 2) Work only with in-page hash links
+			var $links = $('.navbar-nav li a[href^="#"]');
+			var sections = [];
+
+			$links.each(function () {
+				var id = $(this).attr('href'); // e.g. "#skills"
+				var $sec = $(id);
+				if ($sec.length) {
+					sections.push($sec[0]);
+				}
+			});
+
+			// 👉 NEW: adjust scroll position if page loads with a hash (e.g. index.html#contact)
+			if (window.location.hash) {
+				var $initialTarget = $(window.location.hash);
+				if ($initialTarget.length) {
+					$('html, body').scrollTop($initialTarget.offset().top - headerHeight);
+				}
+			}
+
+			function updateActive() {
+				var scrollPos = $(window).scrollTop() + headerHeight + 10;
+				var currentId = null;
+
+				sections.forEach(function (sec) {
+					var $sec = $(sec);
+					var top = $sec.offset().top;
+					var bottom = top + $sec.outerHeight();
+
+					if (scrollPos >= top && scrollPos < bottom) {
+						currentId = sec.id;
+					}
+				});
+
+				$('.navbar-nav li').removeClass('active');
+
+				if (currentId) {
+					$('.navbar-nav li a[href="#' + currentId + '"]').parent().addClass('active');
+				}
+			}
+
+			updateActive();
+			$(window).on('scroll', updateActive);
+
+			// Smooth scroll ONLY for # links inside this page
+			$links.on('click', function (e) {
+				var targetId = $(this).attr('href');
+				var $target = $(targetId);
+				if (!$target.length) return;
+
+				e.preventDefault();
+				$('html, body').stop().animate(
+					{ scrollTop: $target.offset().top - headerHeight },
+					500,
+					'easeInOutExpo'
+				);
+			});
+		});
+	</script>
+
 
 	<script>
 		(function () {
