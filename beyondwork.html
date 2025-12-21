@@ -87,7 +87,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-travel" width="100%" height="300"
+								<iframe id="video-travel-1" width="100%" height="300"
 									src="https://www.youtube.com/embed/8je2JBQqs58?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -105,7 +105,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-music" width="100%" height="300"
+								<iframe id="video-travel-2" width="100%" height="300"
 									src="https://www.youtube.com/embed/q2_pQGcwcYE?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -123,8 +123,8 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-gaming" width="100%" height="300"
-									src="https://www.youtube.com/embed/lETAOXNu7GeE?vq=hd1080&enablejsapi=1"
+								<iframe id="video-travel-3" width="100%" height="300"
+									src="https://www.youtube.com/embed/ETAOXNu7GeE?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -154,7 +154,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-travel" width="100%" height="300"
+								<iframe id="video-music-1" width="100%" height="300"
 									src="https://www.youtube.com/embed/8je2JBQqs58?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -172,7 +172,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-music" width="100%" height="300"
+								<iframe id="video-music-2" width="100%" height="300"
 									src="https://www.youtube.com/embed/skh3Yg9PtqI?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -190,7 +190,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-gaming" width="100%" height="300"
+								<iframe id="video-music-3" width="100%" height="300"
 									src="https://www.youtube.com/embed/XcegcqQ0CdM?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -221,7 +221,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-travel" width="100%" height="300"
+								<iframe id="video-gaming-1" width="100%" height="300"
 									src="https://www.youtube.com/embed/SGvvp1AswPY?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -239,7 +239,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-music" width="100%" height="300"
+								<iframe id="video-gaming-2" width="100%" height="300"
 									src="https://www.youtube.com/embed/7lCcpYG4BHg?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -257,7 +257,7 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="single-hobby-item">
 							<div class="hobby-video">
-								<iframe id="video-gaming" width="100%" height="300"
+								<iframe id="video-gaming-3" width="100%" height="300"
 									src="https://www.youtube.com/embed/DIXhb9W_I54?vq=hd1080&enablejsapi=1"
 									title="YouTube video player" frameborder="0"
 									referrerpolicy="strict-origin-when-cross-origin"
@@ -300,14 +300,15 @@
 
 	<!-- Keep default behaviour, no override scripts here -->
 	<!-- Because we WANT Beyond Work static selected -->
+	<!-- Auto-Pause Logic for YouTube Videos -->
 	<script>
-		// YouTube Player API for Auto-Pause
-		var playerIds = ['video-travel', 'video-music', 'video-gaming'];
 		var players = [];
 
 		function onYouTubeIframeAPIReady() {
-			playerIds.forEach(function (id) {
-				var player = new YT.Player(id, {
+			// Automatically find all iframes with ids starting with 'video-'
+			var iframes = document.querySelectorAll('iframe[id^="video-"]');
+			iframes.forEach(function (iframe) {
+				var player = new YT.Player(iframe.id, {
 					events: {
 						'onStateChange': onPlayerStateChange
 					}
@@ -320,7 +321,8 @@
 			if (event.data == YT.PlayerState.PLAYING) {
 				players.forEach(function (player) {
 					// Pause other players that are not the one currently starting
-					if (player !== event.target && typeof player.pauseVideo === 'function') {
+					// Check if player object and pauseVideo method exist
+					if (player !== event.target && player.pauseVideo) {
 						player.pauseVideo();
 					}
 				});
