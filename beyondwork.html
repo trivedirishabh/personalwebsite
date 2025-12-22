@@ -353,6 +353,49 @@
 		var firstScriptTag = document.getElementsByTagName('script')[0];
 		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	</script>
+
+	<!-- Dynamic Page Title Logic -->
+	<script>
+		$(function () {
+			var sectionTitles = {
+				'beyondwork': 'Beyond Work - Rishabh Trivedi',
+				'travel': 'Traveling & Aerial Photography - Rishabh Trivedi',
+				'music': 'Music - Rishabh Trivedi',
+				'gaming': 'Video Gaming - Rishabh Trivedi'
+			};
+
+			var headerHeight = $('.navbar').outerHeight() || 80;
+			// IDs of sections to track
+			var sections = ['beyondwork', 'travel', 'music', 'gaming'];
+
+			function updateTitle() {
+				var scrollPos = $(window).scrollTop() + headerHeight + 50;
+				var currentId = null;
+
+				sections.forEach(function (id) {
+					var $sec = $('#' + id);
+					if ($sec.length) {
+						var top = $sec.offset().top;
+						var bottom = top + $sec.outerHeight();
+						if (scrollPos >= top && scrollPos < bottom) {
+							currentId = id;
+						}
+					}
+				});
+
+				if (currentId && sectionTitles[currentId]) {
+					document.title = sectionTitles[currentId];
+				} else {
+					// Fallback or default
+					document.title = 'Beyond Work - Rishabh Trivedi';
+				}
+			}
+
+			$(window).on('scroll', updateTitle);
+			// Initial check
+			updateTitle();
+		});
+	</script>
 </body>
 
 </html>
