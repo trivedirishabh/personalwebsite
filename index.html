@@ -555,15 +555,20 @@
 				var scrollPos = $(window).scrollTop() + headerHeight + 10;
 				var currentId = null;
 
-				sections.forEach(function (sec) {
-					var $sec = $(sec);
-					var top = $sec.offset().top;
-					var bottom = top + $sec.outerHeight();
+				// Check if we are at the bottom of the page
+				if ($(window).scrollTop() + $(window).height() >= $(document).height() - 50) {
+					currentId = 'contact'; // Force contact if at bottom
+				} else {
+					sections.forEach(function (sec) {
+						var $sec = $(sec);
+						var top = $sec.offset().top;
+						var bottom = top + $sec.outerHeight();
 
-					if (scrollPos >= top && scrollPos < bottom) {
-						currentId = sec.id;
-					}
-				});
+						if (scrollPos >= top && scrollPos < bottom) {
+							currentId = sec.id;
+						}
+					});
+				}
 
 				$('.navbar-nav li').removeClass('active');
 
@@ -573,6 +578,7 @@
 						document.title = sectionTitles[currentId];
 					}
 				} else {
+					// Default if no section matched (e.g. very top)
 					document.title = 'Rishabh Trivedi';
 				}
 			}
