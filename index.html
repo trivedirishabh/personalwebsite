@@ -542,6 +542,15 @@
 				}
 			}
 
+			var sectionTitles = {
+				'welcome-hero': 'Rishabh Trivedi',
+				'about': 'About Me - Rishabh Trivedi',
+				'experience': 'Experience - Rishabh Trivedi',
+				'skills': 'Skills - Rishabh Trivedi',
+				'education': 'Education - Rishabh Trivedi',
+				'contact': 'Contact Me - Rishabh Trivedi'
+			};
+
 			function updateActive() {
 				var scrollPos = $(window).scrollTop() + headerHeight + 10;
 				var currentId = null;
@@ -560,6 +569,11 @@
 
 				if (currentId) {
 					$('.navbar-nav li a[href="#' + currentId + '"]').parent().addClass('active');
+					if (sectionTitles[currentId]) {
+						document.title = sectionTitles[currentId];
+					}
+				} else {
+					document.title = 'Rishabh Trivedi';
 				}
 			}
 
