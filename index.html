@@ -738,6 +738,8 @@
 				// FIX: Close mobile menu if open
 				if ($('.navbar-toggle').css('display') !== 'none') {
 					$('.navbar-collapse').collapse('hide');
+					// FIX: Icon state reset (Bootsnav toggles fa-times/fa-bars)
+					$('.navbar-toggle .fa').removeClass('fa-times').addClass('fa-bars');
 				}
 			});
 		});
