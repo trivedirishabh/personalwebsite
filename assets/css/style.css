@@ -510,7 +510,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 .single-progress-txt h3 {
     width: 10%;
-    color: #D6CBBF;
+    color: #333;
     position: relative;
     top: 6px;
     left: 20px;
@@ -526,7 +526,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 .progress {
     border-radius: 3px;
     overflow: visible;
-    background: #333;
+    background: #D6CBBF;
     height: 8px;
     margin-top: 15px;
     width: 85%;
@@ -534,7 +534,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 }
 
 .progress-bar {
-    background: #D6CBBF;
+    background: #333;
     border-radius: 3px;
     -webkit-transition: width 1.5s ease-in-out;
     -ms-transition: width 1.5s ease-in-out;
@@ -551,7 +551,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 .tooltip>.tooltip-inner {
     background-color: transparent;
     padding: 1px 5px;
-    color: #D6CBBF;
+    color: #333;
     font-weight: 500;
     font-size: 12px;
     border-radius: 0;
@@ -560,7 +560,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 .popOver+.tooltip>.tooltip-arrow {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #D6CBBF;
+    border-top: 6px solid #333;
     bottom: -1px;
     transform: translateX(-50%);
     margin-left: 0;
