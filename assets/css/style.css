@@ -605,20 +605,27 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 .certifications .experience-time {
     display: flex;
-    align-items: center;
     justify-content: center;
-    /* or flex-start if left aligned */
-    gap: 15px;
-}
-
-.certifications .experience-time img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+    width: 100%;
+    position: relative;
+    text-align: center;
 }
 
 .certifications .experience-time h2 {
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.certifications .experience-time h2 img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 15px;
+    display: inline-block;
 }
 
 /*-------------------------------------
