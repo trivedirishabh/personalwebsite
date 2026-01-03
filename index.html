@@ -734,6 +734,11 @@
 					500,
 					'easeInOutExpo'
 				);
+
+				// FIX: Close mobile menu if open
+				if ($('.navbar-toggle').css('display') !== 'none') {
+					$('.navbar-collapse').collapse('hide');
+				}
 			});
 		});
 	</script>
