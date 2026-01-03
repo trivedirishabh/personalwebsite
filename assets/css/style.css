@@ -596,6 +596,11 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 .certifications-horizontal-timeline .timeline-content {
     height: 100%;
+    text-align: center;
+}
+
+.certifications-horizontal-timeline .description {
+    margin: 0 auto;
 }
 
 .certifications-horizontal-timeline .row {
