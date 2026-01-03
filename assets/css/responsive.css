@@ -161,6 +161,16 @@
 		margin: 0 auto 30px;
 	}
 
+	.hobbies-content .row {
+		display: block;
+	}
+
+	.hobbies-content .col-sm-6 {
+		width: 100%;
+		display: block;
+		margin-bottom: 30px;
+	}
+
 }
 
 /*max-width:767px*/
