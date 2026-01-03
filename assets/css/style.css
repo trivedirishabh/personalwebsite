@@ -772,7 +772,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 .single-progress-txt h3 {
     width: 10%;
-    color: #D6CBBF;
+    color: #544848;
     position: relative;
     top: 6px;
     left: 20px;
@@ -788,7 +788,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 .progress {
     border-radius: 3px;
     overflow: visible;
-    background: #333;
+    background: #D6CBBF;
     height: 8px;
     margin-top: 15px;
     width: 85%;
@@ -796,7 +796,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 }
 
 .progress-bar {
-    background: #D6CBBF;
+    background: #544848;
     border-radius: 3px;
     -webkit-transition: width 1.5s ease-in-out;
     -ms-transition: width 1.5s ease-in-out;
