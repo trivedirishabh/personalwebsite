@@ -511,7 +511,6 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     font-weight: 600;
     text-transform: uppercase;
     padding-bottom: 50px;
-    border-bottom: 1px solid #D6CBBF;
     color: #65605b;
 }
 
@@ -946,7 +945,6 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 .hobbies {
     padding: 50px 0 100px;
     background: #F0EEEA;
-    border-top: 1px solid #D6CBBF;
 }
 
 .hobbies-content {
