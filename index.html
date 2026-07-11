@@ -810,6 +810,79 @@
 		})();
 	</script>
 
+	<!-- Theme Switcher Start -->
+	<div class="theme-switcher-container">
+		<button class="theme-switcher-btn" id="theme-switcher-btn" title="Switch Theme">
+			<i class="fa fa-paint-brush"></i>
+		</button>
+		<div class="theme-switcher-panel" id="theme-switcher-panel">
+			<h4>Choose Theme</h4>
+			<button class="theme-option" data-theme="aurora-dark">
+				<span class="theme-dot dark"></span> Aurora Dark
+			</button>
+			<button class="theme-option" data-theme="executive-light">
+				<span class="theme-dot light"></span> Executive Light
+			</button>
+			<button class="theme-option" data-theme="earth-gold">
+				<span class="theme-dot earth"></span> Earth & Gold
+			</button>
+		</div>
+	</div>
+
+	<script>
+		// Theme Switcher Logic
+		(function () {
+			var switcherBtn = document.getElementById('theme-switcher-btn');
+			var panel = document.getElementById('theme-switcher-panel');
+			var options = document.querySelectorAll('.theme-option');
+
+			// Toggle panel visibility
+			switcherBtn.addEventListener('click', function (e) {
+				e.stopPropagation();
+				panel.classList.toggle('active');
+			});
+
+			// Hide panel when clicking outside
+			document.addEventListener('click', function () {
+				panel.classList.remove('active');
+			});
+
+			panel.addEventListener('click', function (e) {
+				e.stopPropagation();
+			});
+
+			// Apply theme
+			function applyTheme(themeName) {
+				document.body.className = '';
+				if (themeName !== 'aurora-dark') {
+					document.body.classList.add('theme-' + themeName);
+				}
+				options.forEach(function (opt) {
+					if (opt.getAttribute('data-theme') === themeName) {
+						opt.classList.add('active');
+					} else {
+						opt.classList.remove('active');
+					}
+				});
+				localStorage.setItem('rt_theme', themeName);
+			}
+
+			// Load saved theme
+			var savedTheme = localStorage.getItem('rt_theme') || 'aurora-dark';
+			applyTheme(savedTheme);
+
+			// Add click events to theme buttons
+			options.forEach(function (opt) {
+				opt.addEventListener('click', function () {
+					var theme = this.getAttribute('data-theme');
+					applyTheme(theme);
+					panel.classList.remove('active');
+				});
+			});
+		})();
+	</script>
+	<!-- Theme Switcher End -->
+
 </body>
 
 </html>
