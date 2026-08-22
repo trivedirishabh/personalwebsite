@@ -1696,7 +1696,13 @@ section {
 /* ---------- LEFT: TEXT ---------- */
 
 .about-card-content {
-    padding-right: 0;
+    transform: translateY(-65px);
+}
+
+@media (max-width: 991px) {
+    .about-card-content {
+        transform: none;
+    }
 }
 
 .about-card-content .about-eyebrow {
