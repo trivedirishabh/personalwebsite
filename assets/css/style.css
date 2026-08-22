@@ -591,17 +591,11 @@ nav.navbar.bootsnav ul.nav>li>a {
         gap: 16px;
     }
 
-    .about,
     .experience,
-    .certifications,
     .education,
-    .contact {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
     .skills {
-        padding-top: 32px;
+        scroll-margin-top: 0;
+        padding-top: 16px;
         padding-bottom: 80px;
     }
 
@@ -1525,17 +1519,27 @@ section {
     scroll-margin-top: 72px;
 }
 
+/* Original spacing for About and Credentials */
 .about,
-.experience,
-.certifications,
-.education,
-.contact {
+.certifications {
+    scroll-margin-top: 72px;
     padding-top: var(--section-space);
     padding-bottom: var(--section-space);
 }
 
+/* Tight anchor for remaining nav sections */
+.experience,
+.education,
 .skills {
-    padding-top: calc(var(--section-space) * 0.4);
+    scroll-margin-top: 0;
+    padding-top: 24px;
+    padding-bottom: var(--section-space);
+}
+
+/* Roll back Contact to original full-page spacing */
+.contact {
+    scroll-margin-top: 72px;
+    padding-top: var(--section-space);
     padding-bottom: var(--section-space);
 }
 
