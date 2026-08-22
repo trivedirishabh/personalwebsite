@@ -1608,3 +1608,284 @@ section {
 
 
 }
+
+
+/* ============================================================
+   Final section layout fix
+   Keeps anchored sections cleanly separated from the next section.
+   ============================================================ */
+
+.about,
+.experience,
+.education,
+.skills,
+.certifications,
+.contact {
+    min-height: calc(100vh - 72px);
+    scroll-margin-top: 72px;
+}
+
+/* Keep section content comfortably spaced without relying on
+   inconsistent legacy section rules above. */
+.about,
+.experience,
+.education,
+.skills,
+.certifications,
+.contact {
+    box-sizing: border-box;
+}
+
+/* On smaller screens, avoid forcing every section to fill the
+   viewport when content naturally needs more room. */
+@media (max-width: 767px) {
+
+    .about,
+    .experience,
+    .education,
+    .skills,
+    .certifications,
+    .contact {
+        min-height: auto;
+        scroll-margin-top: 72px;
+    }
+}
+
+/* Center Education content, slightly below midpoint */
+.education {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.education .section-heading {
+    margin-bottom: 64px;
+}
+
+.education .education-grid {
+    padding-top: 0;
+}
+
+/* ============================================================
+   ABOUT ME — SINGLE UNIFIED CARD
+   ============================================================ */
+
+.about-card {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    align-items: center;
+    gap: 60px;
+
+    padding: 56px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    background: var(--bg-secondary);
+
+    box-shadow: 0 16px 38px var(--shadow-color);
+}
+
+
+/* ---------- LEFT: TEXT ---------- */
+
+.about-card-content {
+    padding-right: 0;
+}
+
+.about-card-content .about-eyebrow {
+    display: block;
+    margin-bottom: 28px;
+
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.about-card-content h3 {
+    margin: 0 0 24px;
+
+    color: var(--text-primary);
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.about-card-content p {
+    max-width: 720px;
+
+    margin: 0 0 16px;
+
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   RIGHT: PHOTO + SOCIAL LINKS
+   ============================================================ */
+
+.about-card-profile {
+    position: relative;
+
+    width: 100%;
+    max-width: 360px;
+    margin-left: auto;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+
+    background: var(--bg-primary);
+
+    box-shadow: 0 12px 30px var(--shadow-color);
+}
+
+
+/* Remove old 320px restriction */
+.about-card-profile .single-about-img {
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    border-radius: 24px 24px 0 0;
+
+    box-shadow: none;
+
+    background: transparent;
+}
+
+
+/* Make the photo fill the entire width */
+.about-card-profile .single-about-img img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: none;
+
+    margin: 0;
+
+    object-fit: cover;
+}
+
+
+/* Keep the subtle photo overlay */
+.about-card-profile .single-about-img:before {
+    position: absolute;
+
+    content: "";
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(44, 37, 35, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   SOCIAL LINKS — BELOW PHOTO
+   ============================================================ */
+
+.about-card-profile .about-list-icon {
+    position: static;
+
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+
+    background: var(--bg-primary);
+}
+
+
+/* Preserve your existing links */
+.about-card-profile .about-list-icon ul {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.about-card-profile .about-list-icon ul li a {
+    margin-left: 20px;
+}
+
+.about-card-profile .about-list-icon ul li:first-child a {
+    margin-left: 0;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .about-card {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding: 40px;
+    }
+
+    .about-card-profile {
+        margin: 0 auto;
+    }
+
+    .about-card-content h3 {
+        font-size: 36px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .about-card {
+        padding: 28px;
+
+        border-radius: 22px;
+    }
+
+    .about-card-content h3 {
+        font-size: 30px;
+    }
+
+    .about-card-profile {
+        max-width: 100%;
+    }
+}
+
+#about {
+    scroll-margin-top: -56px;
+}
