@@ -533,14 +533,6 @@
 				}
 			});
 
-			// 👉 NEW: adjust scroll position if page loads with a hash (e.g. index.html#contact)
-			if (window.location.hash) {
-				var $initialTarget = $(window.location.hash);
-				if ($initialTarget.length) {
-					$('html, body').scrollTop($initialTarget.offset().top - headerHeight);
-				}
-			}
-
 			var sectionTitles = {
 				'welcome-hero': 'Rishabh Trivedi',
 				'about': 'About Me - Rishabh Trivedi',
@@ -550,6 +542,16 @@
 				'education': 'Education - Rishabh Trivedi',
 				'contact': 'Contact Me - Rishabh Trivedi'
 			};
+			// Always start at the top when the page is reloaded
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
+
+			window.scrollTo(0, 0);
+
+			setTimeout(function () {
+				window.scrollTo(0, 0);
+			}, 100);
 
 			function updateActive() {
 				var scrollPos = $(window).scrollTop() + headerHeight + 10;
