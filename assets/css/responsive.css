@@ -211,3 +211,199 @@
 @media screen and (max-width: 320px) {}
 
 /*max-width:320px*/
+
+/* --------------------------------------------------------------------------
+   Portfolio layout safeguards
+   These rules intentionally come last so they resolve orientation conflicts
+   from the original Bootstrap timeline layout.
+   -------------------------------------------------------------------------- */
+.menu-ui-design {
+	height: auto;
+	overflow: visible;
+}
+
+@media screen and (max-width: 1199px) {
+	nav.navbar.bootsnav ul.nav>li>a {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.header-text {
+		max-width: 780px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	nav.navbar.bootsnav .navbar-toggle {
+		margin-top: 13px;
+	}
+
+	.menu-ui-design {
+		padding: 0;
+	}
+
+	nav.navbar.bootsnav ul.nav>li>a {
+		padding: 13px 0;
+		font-size: 15px;
+	}
+
+	.welcome-hero {
+		min-height: 700px;
+		height: auto;
+		padding: 120px 0 80px;
+	}
+
+	.about-content .row {
+		display: flex;
+		align-items: center;
+	}
+
+	.single-about-img {
+		max-width: 300px;
+	}
+
+	.main-timeline:before,
+	.experience-time span>i,
+	.timeline-content span>i {
+		display: none;
+	}
+
+	.single-timeline-box {
+		margin-bottom: 22px;
+		padding: 30px;
+		border: 1px solid var(--border-color);
+		border-radius: 20px;
+		background: var(--bg-primary);
+	}
+
+	.experience-time,
+	.timeline-content,
+	.main-timeline .timeline-content.right {
+		float: none;
+		margin: 0;
+		text-align: left;
+	}
+
+	.experience-time {
+		margin-bottom: 20px;
+	}
+
+	.certifications-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.container {
+		width: 100%;
+		padding-right: 22px;
+		padding-left: 22px;
+	}
+
+	.navbar-header a.navbar-brand,
+	.navbar-header a.navbar-brand:hover,
+	.navbar-header a.navbar-brand:focus {
+		padding: 20px 0;
+		font-size: 18px;
+	}
+
+	.welcome-hero {
+		min-height: 640px;
+		padding: 110px 0 70px;
+	}
+
+	.header-text h1 {
+		font-size: clamp(42px, 12vw, 58px);
+		letter-spacing: -0.06em;
+	}
+
+	.header-text h1 br {
+		display: none;
+	}
+
+	.header-text .hero-intro {
+		max-width: 480px;
+		margin-top: 24px;
+	}
+
+	.hero-actions {
+		align-items: center;
+	}
+
+	.about-content .row {
+		display: block;
+	}
+
+	.single-about-txt {
+		text-align: center;
+	}
+
+	.single-about-txt p {
+		padding: 24px 0 42px;
+		font-size: 16px;
+	}
+
+	.single-about-img {
+		max-width: min(100%, 340px);
+	}
+
+	.single-timeline-box {
+		padding: 24px;
+	}
+
+	.experience-time h2 {
+		font-size: 18px;
+	}
+
+	.experience-time h3 {
+		font-size: 14px;
+		line-height: 1.5;
+	}
+
+	.certifications-grid {
+		grid-template-columns: 1fr;
+		padding-top: 42px;
+	}
+
+	.certification-card {
+		min-height: auto;
+		padding: 28px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	:root {
+		--section-space: 80px;
+		--section-gap: 42px;
+	}
+
+	.section-heading {
+		margin-bottom: var(--section-gap);
+	}
+
+	.about-content,
+	.experience-content,
+	.skill-content,
+	.certifications-grid,
+	.education-grid,
+	.contact-content {
+		padding-top: 0;
+	}
+
+	.capability-grid {
+		gap: 14px;
+	}
+
+	.capability-card,
+	.education-card {
+		min-height: 245px;
+		padding: 28px;
+	}
+
+	.capability-card h3,
+	.education-card h3 {
+		margin-top: 44px;
+	}
+
+
+}
