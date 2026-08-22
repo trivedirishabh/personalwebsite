@@ -1900,3 +1900,198 @@ section {
     vertical-align: middle;
     fill: currentColor;
 }
+
+/* =========================================================
+   PREMIUM PERSONAL NAVBAR
+   ========================================================= */
+
+.top-area .navbar {
+    min-height: 72px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(18, 20, 24, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Keep the navbar content vertically centered */
+.top-area .navbar-header,
+.top-area .navbar-brand {
+    height: 72px;
+}
+
+/* ---------------------------------------------------------
+   YOUR NAME
+   --------------------------------------------------------- */
+
+.top-area .navbar-brand {
+    display: flex;
+    align-items: center;
+
+    padding: 0 25px 0 0;
+
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1;
+
+    color: var(--text-primary) !important;
+
+    transition: color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.top-area .navbar-brand:hover {
+    color: var(--accent) !important;
+    opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   NAVIGATION LINKS
+   --------------------------------------------------------- */
+
+.top-area .navbar-nav>li>a {
+    position: relative;
+
+    height: 72px;
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+
+    color: var(--text-secondary) !important;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Subtle hover */
+.top-area .navbar-nav>li>a:hover {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+}
+
+/* ---------------------------------------------------------
+   ACTIVE SECTION
+   --------------------------------------------------------- */
+
+.top-area .navbar-nav>li.active>a {
+    color: var(--accent) !important;
+    background: transparent !important;
+}
+
+/* Small accent line underneath active item */
+.top-area .navbar-nav>li.active>a::after {
+    content: "";
+
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
+
+    height: 2px;
+
+    background: var(--accent);
+
+    transform: scaleX(1);
+    transform-origin: center;
+
+    transition: transform 0.25s ease;
+}
+
+/* ---------------------------------------------------------
+   HOVER ACCENT LINE
+   --------------------------------------------------------- */
+
+.top-area .navbar-nav>li:not(.active)>a::after {
+    content: "";
+
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
+
+    height: 2px;
+
+    background: var(--accent);
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.25s ease;
+}
+
+.top-area .navbar-nav>li:not(.active)>a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ---------------------------------------------------------
+   MOBILE MENU BUTTON
+   --------------------------------------------------------- */
+
+.top-area .navbar-toggle {
+    margin-top: 18px;
+    margin-right: 15px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    background: transparent;
+}
+
+.top-area .navbar-toggle:hover,
+.top-area .navbar-toggle:focus {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.top-area .navbar-toggle .fa {
+    color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .top-area .navbar {
+        min-height: 64px;
+    }
+
+    .top-area .navbar-header,
+    .top-area .navbar-brand {
+        height: 64px;
+    }
+
+    .top-area .navbar-brand {
+        padding-left: 15px;
+        font-size: 19px;
+    }
+
+    .top-area .navbar-nav>li>a {
+        height: 50px;
+        padding: 0 20px;
+    }
+
+    .top-area .navbar-nav>li.active>a::after,
+    .top-area .navbar-nav>li:not(.active)>a::after {
+        left: 20px;
+        right: auto;
+        width: 35px;
+    }
+
+    .top-area .navbar-nav>li:last-child>a {
+        margin-left: 0;
+        padding-left: 20px;
+        border-left: 0;
+    }
+}
