@@ -57,7 +57,7 @@
 							<li class="smooth-menu"><a href="#Credentials">Credentials</a></li>
 							<li class="smooth-menu"><a href="#education">Education</a></li>
 							<li class="smooth-menu"><a href="#contact">Contact</a></li>
-							<li class="smooth-menu"><a href="beyondwork.html">Beyond Work</a></li>
+							<li><a href="beyondwork.html">Beyond Work</a></li>
 						</ul>
 
 					</div>
@@ -516,77 +516,90 @@
 	<script>
 		// Ensure only ONE nav item is active at any time, & keep # links smooth
 		$(function () {
+
+			var isHashNavigation = window.location.hash.length > 0;
+
 			var headerHeight = $('.navbar').outerHeight() || 80;
 
-			// 1) Remove ALL old click h&lers from navbar links (including theme's)
-			$('.navbar-nav li a').off('click');
-
-			// 2) Work only with in-page hash links
+			// Get only the section links on the main page
 			var $links = $('.navbar-nav li a[href^="#"]');
+
+			// Build the list of sections from those links
 			var sections = [];
 
 			$links.each(function () {
-				var id = $(this).attr('href'); // e.g. "#skills"
+				var id = $(this).attr('href');
 				var $sec = $(id);
+
 				if ($sec.length) {
 					sections.push($sec[0]);
 				}
 			});
+
+			if (isHashNavigation) {
+				// Prevent the browser/theme from losing the requested hash position
+				setTimeout(function () {
+					var target = document.querySelector(window.location.hash);
+
+					if (target) {
+						var headerHeight = $('.navbar').outerHeight() || 80;
+
+						$('html, body').stop().scrollTop(
+							$(target).offset().top - headerHeight
+						);
+					}
+				}, 100);
+			}
+
 
 			var sectionTitles = {
 				'welcome-hero': 'Rishabh Trivedi',
 				'about': 'About Me - Rishabh Trivedi',
 				'experience': 'Experience - Rishabh Trivedi',
 				'skills': 'Skills - Rishabh Trivedi',
-				'certifications': 'Certifications - Rishabh Trivedi',
+				'Credentials': 'Credentials - Rishabh Trivedi',
 				'education': 'Education - Rishabh Trivedi',
 				'contact': 'Contact Me - Rishabh Trivedi'
 			};
-			// Always start at the top when the page is reloaded
-			if ('scrollRestoration' in history) {
-				history.scrollRestoration = 'manual';
-			}
-
-			window.scrollTo(0, 0);
-
-			setTimeout(function () {
-				window.scrollTo(0, 0);
-			}, 100);
-
 			function updateActive() {
-				var scrollPos = $(window).scrollTop() + headerHeight + 10;
-				var currentId = null;
+				var scrollTop = $(window).scrollTop();
+				var currentId = 'welcome-hero';
 
-				// Check if we are at the bottom of the page
-				if ($(window).scrollTop() + $(window).height() >= $(document).height() - 50) {
-					currentId = 'contact'; // Force contact if at bottom
-				} else {
-					sections.forEach(function (sec) {
-						var $sec = $(sec);
-						var top = $sec.offset().top;
-						var bottom = top + $sec.outerHeight();
+				// Find the section whose top is closest to,
+				// but not below, the top of the viewport.
+				sections.forEach(function (sec) {
+					var top = $(sec).offset().top;
 
-						if (scrollPos >= top && scrollPos < bottom) {
-							currentId = sec.id;
-						}
-					});
+					if (top <= scrollTop + 120) {
+						currentId = sec.id;
+					}
+				});
+
+				// Contact wins at the very bottom
+				if (scrollTop + $(window).height() >= $(document).height() - 10) {
+					currentId = 'contact';
 				}
 
+				// Clear all active states
 				$('.navbar-nav li').removeClass('active');
 
-				if (currentId) {
-					$('.navbar-nav li a[href="#' + currentId + '"]').parent().addClass('active');
-					if (sectionTitles[currentId]) {
-						document.title = sectionTitles[currentId];
-					}
+				// Activate the matching menu item
+				$('.navbar-nav li a[href="#' + currentId + '"]')
+					.closest('li')
+					.addClass('active');
+
+				// Page title
+				if (sectionTitles[currentId]) {
+					document.title = sectionTitles[currentId];
 				} else {
-					// Default if no section matched (e.g. very top)
 					document.title = 'Rishabh Trivedi';
 				}
 			}
+			$(window).on('scroll resize', updateActive);
 
-			updateActive();
-			$(window).on('scroll', updateActive);
+			setTimeout(function () {
+				updateActive();
+			}, 300);
 
 			// Smooth scroll ONLY for # links inside this page
 			$links.on('click', function (e) {
