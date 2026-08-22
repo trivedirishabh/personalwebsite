@@ -1696,7 +1696,7 @@ section {
 /* ---------- LEFT: TEXT ---------- */
 
 .about-card-content {
-    transform: translateY(-65px);
+    transform: translateY(-70px);
 }
 
 @media (max-width: 991px) {
