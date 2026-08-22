@@ -1892,3 +1892,11 @@ section {
     padding-bottom: 128px;
     scroll-margin-top: 72px;
 }
+
+.google-cloud-icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+}
