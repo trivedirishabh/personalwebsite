@@ -1886,6 +1886,9 @@ section {
     }
 }
 
-#about {
-    scroll-margin-top: -56px;
+/* Fix About section positioning */
+.about {
+    padding-top: 24px !important;
+    padding-bottom: 128px;
+    scroll-margin-top: 72px;
 }
