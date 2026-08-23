@@ -2113,3 +2113,36 @@ section {
 #skills .section-heading h2 {
     font-size: 36px;
 }
+
+/* =========================================================
+   CONTACT SECTION SPACING
+   ========================================================= */
+
+#contact {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#contact .section-heading {
+    margin-bottom: 55px;
+}
+
+#contact .contact-form {
+    margin-top: 0;
+}
+
+@media (max-width: 991px) {
+    #contact {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    #contact .section-heading {
+        margin-bottom: 40px;
+    }
+}
+
+/* Move only Credentials heading upward */
+#Credentials .section-heading {
+    transform: translateY(-25px);
+}
