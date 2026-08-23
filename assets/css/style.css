@@ -357,7 +357,7 @@ nav.navbar.bootsnav ul.nav>li>a {
 .section-eyebrow {
     margin: 0 0 18px;
     color: var(--accent);
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-transform: none;
@@ -1696,7 +1696,7 @@ section {
 /* ---------- LEFT: TEXT ---------- */
 
 .about-card-content {
-    transform: translateY(-70px);
+    transform: translateY(-20px);
 }
 
 @media (max-width: 991px) {
@@ -1705,21 +1705,10 @@ section {
     }
 }
 
-.about-card-content .about-eyebrow {
-    display: block;
-    margin-bottom: 28px;
-
-    color: var(--accent);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-}
-
 .about-card-content h3 {
-    margin: 0 0 24px;
-
+    margin: 0 0 38px;
     color: var(--text-primary);
-    font-size: clamp(30px, 3.2vw, 44px);
+    font-size: clamp(28px, 3vw, 40px);
     font-weight: 600;
     line-height: 1.08;
     letter-spacing: -0.04em;
@@ -1727,14 +1716,15 @@ section {
 
 .about-card-content p {
     max-width: 720px;
-
-    margin: 0 0 16px;
-
+    margin: 0 0 18px;
     color: var(--text-secondary);
     font-size: 16px;
     line-height: 1.6;
 }
 
+.about-card-content p:last-child {
+    margin-bottom: 0;
+}
 
 /* ============================================================
    RIGHT: PHOTO + SOCIAL LINKS
