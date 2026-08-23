@@ -2101,3 +2101,20 @@ section {
         border-left: 0;
     }
 }
+
+/* =========================================================
+   MOBILE HERO - KEEP ABOUT SECTION BELOW THE FIRST SCREEN
+   ========================================================= */
+
+@media (max-width: 991px) {
+    #welcome-hero {
+        min-height: calc(100svh - 72px);
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    #welcome-hero .container {
+        width: 100%;
+    }
+}
